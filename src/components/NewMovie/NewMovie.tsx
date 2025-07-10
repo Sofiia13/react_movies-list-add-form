@@ -15,7 +15,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
   const [imdbUrl, setImdbUrl] = useState('');
   const [imdbId, setImdbId] = useState('');
 
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const isFormValid =
     title.trim() && imgUrl.trim() && imdbUrl.trim() && imdbId.trim();
@@ -39,8 +39,11 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
         imdbUrl: imdbUrl.trim(),
         imdbId: imdbId.trim(),
       };
+
       onAdd(newMovie);
     }
+
+    setCount(count + 1);
 
     resetForm();
   };
